@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" preserve-order="true" verbose="4">
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter"/>
+        <listener class-name="org.testng.reporters.FailedReporter"/>
+    </listeners>
+    <test name="Test for login with valid credentials" enabled="false" parallel="true">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="org.testcases.login.ValidCredentials">
+                <methods>
+                    <include name="testLogin"/>
+                </methods>
+            </class>
+            <class name="org.testcases.login.InvalidCredentials">
+                <methods>
+                    <include name="invalidLoginTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Test for login with Invalid credentials" enabled="false" parallel="true">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="org.testcases.login.InvalidCredentials">
+                <methods>
+                    <include name="invalidLoginTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Test for login with Empty fields" enabled="false" parallel="true">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="org.testcases.login.LoginTestWithEmptyFields">
+                <methods>
+                    <include name="emptyFieldTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Check OUt Test" enabled="false" parallel="true">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="org.testcases.logout.LogOutTest">
+                <methods>
+                    <include name="checkOutTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Search Test" enabled="true" parallel="true">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="org.testcases.search.searchTest">
+                <methods>
+                    <include name="searchItemTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
